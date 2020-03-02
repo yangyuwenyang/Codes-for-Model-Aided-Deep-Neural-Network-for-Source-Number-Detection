@@ -2,7 +2,7 @@
 Codes for "Model-Aided Deep Neural Network for Source Number Detection"
 ## Descriptions
 This code was used to generate the figures in the article "Model-Aided Deep Neural Network for Source Number Detection".
-In order to use the codes or any (modified) part of them, please cite:
+In order to use the codes or any (modified) part of them, please cite:<br/>
 Y. Yang, F. Gao, C. Qian and G. Liao, "Model-Aided Deep Neural Network for Source Number Detection," in IEEE Signal Processing Letters, vol. 27, pp. 91-95, 2020.
 <details>
 <summary>Unfold to see bibtex codes</summary>
