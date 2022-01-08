@@ -54,7 +54,7 @@ def sample_generation_reg_corrected_all(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=6, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	mu = np.zeros((number_source,))
 	sn = np.random.multivariate_normal(mu, Mapping[number_source], size=(snap_time)).T
@@ -87,7 +87,7 @@ def sample_generation_reg_coherent_fbss_corrected(SNRdB,number_antenna,snap_time
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	number_nonher=int(np.random.randint(1, high=number_source+1, size=(1,),))
 	# number_nonher=number_source
@@ -161,7 +161,7 @@ def sample_generation_reg_coherent_fbss(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	number_nonher=int(np.random.randint(1, high=number_source+1, size=(1,),))
 	# number_nonher=number_source
@@ -201,7 +201,7 @@ def sample_generation_reg_coherent(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=6, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	number_nonher=int(np.random.randint(1, high=number_source+1, size=(1,),))
 	# number_nonher=number_source
@@ -264,7 +264,7 @@ def sample_generation_regression_lu(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -305,7 +305,7 @@ def sample_generation_eig_lu_reg_class_angle_point(angl,SNRdB,number_antenna,sna
 	number_source=3
 	omega_val = [np.sin((angl* nn / 180) * np.pi) * 0.5 * 2 * np.pi for nn in range(number_source)]
 	omega_val = np.asarray(omega_val)
-	# omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	# omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -391,7 +391,7 @@ def sample_generation_eig_lu_reg_class_coherent(SNRdB,number_antenna,snap_time):
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
 	# number_source=1
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	number_nonher=int(np.random.randint(1, high=number_source+1, size=(1,),))
 	# number_nonher=number_source
@@ -448,7 +448,7 @@ def sample_generation_eig_lu_reg_class(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -533,7 +533,7 @@ def sample_generation_cov_eig_lu_reg_class(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -606,7 +606,7 @@ def sample_generation_org_reg_class_coherent(SNRdB,number_antenna,snap_time):
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
 	# number_source=1
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	number_nonher=int(np.random.randint(1, high=number_source+1, size=(1,),))
 	# number_nonher=number_source
@@ -712,7 +712,7 @@ def sample_generation_org_eig_lu_reg_class(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -747,7 +747,7 @@ def sample_generation_regression(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -784,7 +784,7 @@ def sample_generation_reg_source_angle_same(SNRdB,number_antenna,snap_time):
 
 	# number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	# number_source=int(number_source)
-	# omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	# omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -818,7 +818,7 @@ def sample_generation_reg_angle_varying(angl,SNRdB,number_antenna,snap_time):
 	number_source=int(number_source)
 	omega_val = [np.sin((angl* nn / 180) * np.pi) * 0.5 * 2 * np.pi for nn in range(number_source)]
 	omega_val = np.asarray(omega_val)
-	# omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	# omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -838,7 +838,7 @@ def sample_generation_reg_corrected(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=6, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0,math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	mu = np.zeros((number_source,))
 	sn = np.random.multivariate_normal(mu, Mapping[number_source], size=(snap_time)).T
@@ -887,7 +887,7 @@ def MDL_MMSE(SNRdB,number_antenna,snap_time):
 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		number_source=int(number_source)
 		# number_source=3
-		omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+		omega_val=np.random.uniform(0,math.pi, (number_source,1))
 		# omega_val = [np.sin((5.5 * nn / 180) * np.pi) * 0.5 * 2 * np.pi for nn in range(number_source)]
 		# omega_val = np.asarray(omega_val)
 
@@ -949,7 +949,7 @@ def MDL_subfun_random_angle(SNRdB,number_antenna,snap_time):
 		# omega_val=np.array([0,np.sin((5.5/180)*np.pi)*0.5*2*np.pi,np.sin((11./180)*np.pi)*0.5*2*np.pi])
 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		number_source=int(number_source)
-		omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+		omega_val=np.random.uniform(0,math.pi, (number_source,1))
 		# omega_val = [np.sin((5.5 * nn / 180) * np.pi) * 0.5 * 2 * np.pi for nn in range(number_source)]
 		# omega_val = np.asarray(omega_val)
 		A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
@@ -1007,7 +1007,7 @@ def MDL_fbss_random_angle_coherent_colored(SNRdB,number_antenna,snap_time):
 	for rept in range(reat_time):
 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		number_source=int(number_source)
-		omega_val = np.random.uniform(0, 2 * math.pi, (number_source, 1))
+		omega_val = np.random.uniform(0,  math.pi, (number_source, 1))
 		A = np.exp(1j * np.dot(np.arange(0, number_antenna, 1).reshape((number_antenna, 1)),
 							   omega_val.reshape((1, number_source))))
 		number_nonher = int(np.random.randint(1, high=number_source + 1, size=(1,), ))
@@ -1095,7 +1095,7 @@ def MDL_fbss_random_angle_coherent_colored(SNRdB,number_antenna,snap_time):
 # 	for rept in range(reat_time):
 # 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 # 		number_source=int(number_source)
-# 		omega_val = np.random.uniform(0, 2 * math.pi, (number_source, 1))
+# 		omega_val = np.random.uniform(0,  math.pi, (number_source, 1))
 # 		A = np.exp(1j * np.dot(np.arange(0, number_antenna, 1).reshape((number_antenna, 1)),
 # 							   omega_val.reshape((1, number_source))))
 # 		number_nonher = int(np.random.randint(1, high=number_source + 1, size=(1,), ))
@@ -1201,7 +1201,7 @@ def MDL_fbss_random_angle_coherent_colored_corrected(SNRdB,number_antenna,snap_t
 	for rept in range(reat_time):
 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		number_source=int(number_source)
-		omega_val = np.random.uniform(0, 2 * math.pi, (number_source, 1))
+		omega_val = np.random.uniform(0,  math.pi, (number_source, 1))
 		A = np.exp(1j * np.dot(np.arange(0, number_antenna, 1).reshape((number_antenna, 1)),
 							   omega_val.reshape((1, number_source))))
 		number_nonher = int(np.random.randint(1, high=number_source + 1, size=(1,), ))
@@ -1282,7 +1282,7 @@ def MDL_fbss_random_angle_coherent(SNRdB,number_antenna,snap_time):
 	for rept in range(reat_time):
 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		number_source=int(number_source)
-		omega_val = np.random.uniform(0, 2 * math.pi, (number_source, 1))
+		omega_val = np.random.uniform(0, math.pi, (number_source, 1))
 		A = np.exp(1j * np.dot(np.arange(0, number_antenna, 1).reshape((number_antenna, 1)),
 							   omega_val.reshape((1, number_source))))
 		number_nonher = int(np.random.randint(1, high=number_source + 1, size=(1,), ))
@@ -1368,7 +1368,7 @@ def MDL_subfun_random_angle_coherent(SNRdB,number_antenna,snap_time):
 	for rept in range(reat_time):
 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		number_source=int(number_source)
-		omega_val = np.random.uniform(0, 2 * math.pi, (number_source, 1))
+		omega_val = np.random.uniform(0,  math.pi, (number_source, 1))
 		A = np.exp(1j * np.dot(np.arange(0, number_antenna, 1).reshape((number_antenna, 1)),
 							   omega_val.reshape((1, number_source))))
 		number_nonher = int(np.random.randint(1, high=number_source + 1, size=(1,), ))
@@ -1432,7 +1432,7 @@ def MDL_subfun_random_angle_corrected(SNRdB,number_antenna,snap_time):
 	for rept in range(reat_time):
 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		number_source=int(number_source)
-		omega_val = np.random.uniform(0, 2 * math.pi, (number_source, 1))
+		omega_val = np.random.uniform(0,   math.pi, (number_source, 1))
 		A = np.exp(1j * np.dot(np.arange(0, number_antenna, 1).reshape((number_antenna, 1)),
 							   omega_val.reshape((1, number_source))))
 		mu = np.zeros((number_source,))
@@ -1443,7 +1443,7 @@ def MDL_subfun_random_angle_corrected(SNRdB,number_antenna,snap_time):
 		# # omega_val=np.array([0,np.sin((5.5/180)*np.pi)*0.5*2*np.pi,np.sin((11./180)*np.pi)*0.5*2*np.pi])
 		# number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		# number_source=int(number_source)
-		# omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+		# omega_val=np.random.uniform(0, math.pi, (number_source,1))
 		# # omega_val = [np.sin((5.5 * nn / 180) * np.pi) * 0.5 * 2 * np.pi for nn in range(number_source)]
 		# # omega_val = np.asarray(omega_val)
 		# A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
@@ -1509,7 +1509,7 @@ def MDL_subfun_vs_angle(angle,SNRdB,number_antenna,snap_time):
 		number_source=int(number_source)
 
 		# number_source=2
-		# omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+		# omega_val=np.random.uniform(0, math.pi, (number_source,1))
 		omega_val = [np.sin((angle * nn / 180) * np.pi) * 0.5 * 2 * np.pi for nn in range(number_source)]
 		omega_val = np.asarray(omega_val)
 		A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
@@ -1570,7 +1570,7 @@ def MDL_subfun(SNRdB,number_antenna,snap_time):
 		# omega_val=np.array([0,np.sin((5.5/180)*np.pi)*0.5*2*np.pi,np.sin((11./180)*np.pi)*0.5*2*np.pi])
 		number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 		number_source=int(number_source)
-		# omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+		# omega_val=np.random.uniform(0, math.pi, (number_source,1))
 		omega_val = [np.sin((5.5 * nn / 180) * np.pi) * 0.5 * 2 * np.pi for nn in range(number_source)]
 		omega_val = np.asarray(omega_val)
 		A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
@@ -1625,7 +1625,7 @@ def MDL_subfun_correced(SNRdB,number_antenna,snap_time):
 	for rept in range(reat_time):
 
 		number_source = 2
-		omega_val = np.random.uniform(0, 2 * math.pi, (number_source, 1))
+		omega_val = np.random.uniform(0,   math.pi, (number_source, 1))
 		A = np.exp(1j * np.dot(np.arange(0, number_antenna, 1).reshape((number_antenna, 1)),
 							   omega_val.reshape((1, number_source))))
 		mu = np.zeros((number_source,))
@@ -1655,7 +1655,7 @@ def MDL_subfun_correced_all(SNRdB,number_antenna,snap_time):
 	for rept in range(reat_time):
 		number_source=np.random.randint(1, high=6, size=(1,),)
 		number_source=int(number_source)
-		omega_val = np.random.uniform(0, 2 * math.pi, (number_source, 1))
+		omega_val = np.random.uniform(0,  math.pi, (number_source, 1))
 		A = np.exp(1j * np.dot(np.arange(0, number_antenna, 1).reshape((number_antenna, 1)),
 							   omega_val.reshape((1, number_source))))
 		mu = np.zeros((number_source,))
@@ -1692,7 +1692,7 @@ def sample_generation_class_lu(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0, math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -1734,7 +1734,7 @@ def sample_generation_class(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0, math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
@@ -1779,7 +1779,7 @@ def sample_generation_regression_norm(SNRdB,number_antenna,snap_time):
 	SNR = 10 ** (SNRdB / 10)
 	number_source=np.random.randint(1, high=number_antenna//2, size=(1,),)
 	number_source=int(number_source)
-	omega_val=np.random.uniform(0,2*math.pi, (number_source,1))
+	omega_val=np.random.uniform(0, math.pi, (number_source,1))
 	A=np.exp(1j*np.dot(np.arange(0,number_antenna,1).reshape((number_antenna,1)),omega_val.reshape((1,number_source))))
 	sn=(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_source,snap_time))
 	wn=(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))+1j*(1./np.sqrt(2))*np.random.normal(size=(number_antenna,snap_time))
